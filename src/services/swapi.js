@@ -11,11 +11,12 @@ class SwapiService {
 
     async getPeopleAll() {
         const response = await this.getResourse('/people');
-        return response.results;
+        return response.results.map(this._transformPerson);
     }
 
-    getPeopleById(id) {
-        return this.getResourse(`/people/${id}`);
+    async getPeopleById(id) {
+        const person = await this.getResourse(`/people/${id}`);
+        return this._transformPerson(person);
     }
 
     async getPlanetsAll() {
@@ -33,22 +34,32 @@ class SwapiService {
         return response.results;
     }
 
-    getStarshipById(id) {
+    getStarshipById (id) {
         return this.getResourse(`/starships/${id}`);
-    }
+    };
 
     _extractId(item) {
         const idRegExp = /\/([0-9]*)\/$/;
         return item.url.match(idRegExp)[1];
     }
 
-    _transformPlanet(planet) {
+    _transformPlanet = (planet) => {
         return {
             id: this._extractId(planet),
             name: planet.name,
             population: planet.population,
             rotationPeriod: planet.rotation_period,
             diameter: planet.diameter
+        }
+    };
+
+    _transformPerson = (person) => {
+        return {
+            id: this._extractId(person),
+            name: person.name,
+            gender: person.gender,
+            birthYear: person.birthYear,
+            eyeColor: person.eyeColor
         }
     }
 }

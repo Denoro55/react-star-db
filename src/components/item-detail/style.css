@@ -1,6 +1,6 @@
 .item-detail {
   display: flex;
-  padding: 40px;
+  padding: 30px;
   background-color: #303030;
   border-radius: 5px; }
   .item-detail__name {
@@ -8,6 +8,8 @@
     margin-bottom: 20px; }
   .item-detail__left {
     margin-right: 40px; }
+    .item-detail__left img {
+      max-width: 200px; }
   .item-detail__right {
     flex: 1 1 auto; }
   .item-detail__param {

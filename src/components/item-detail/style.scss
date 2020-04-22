@@ -1,6 +1,6 @@
 .item-detail {
     display: flex;
-    padding: 40px;
+    padding: 30px;
     background-color: #303030;
     border-radius: 5px;
 
@@ -11,6 +11,10 @@
 
     &__left {
         margin-right: 40px;
+
+        img {
+            max-width: 200px;
+        }
     }
 
     &__right {
