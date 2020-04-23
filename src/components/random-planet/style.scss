@@ -1,0 +1,32 @@
+.item-detail {
+    display: flex;
+    background-color: #353535;
+    padding: 30px;
+
+    &__left {
+        img {
+            max-width: 200px;
+        }
+    }
+
+    &__right {
+        margin-left: 40px;
+        flex: 1;
+    }
+
+    &__name {
+        font-size: 24px;
+        margin-bottom: 40px;
+    }
+
+    &__param {
+        display: flex;
+        margin-bottom: 7px;
+        padding-bottom: 7px;
+        border-bottom: 1px solid #5a5a5a;
+
+        &-value {
+            margin-left: 5px;
+        }
+    }
+}
