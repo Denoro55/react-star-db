@@ -22,6 +22,7 @@ export default class Header extends Component {
                         </li>
                     </ul>
                 </div>
+                <button onClick={this.props.onToggleService} className="btn btn-primary">Change Service</button>
             </nav>
         )
     }

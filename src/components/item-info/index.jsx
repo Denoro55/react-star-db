@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import Spinner from "../spinner";
+import ErrorButton from "../error-button";
+import ErrorBoundry from "../error-boundry";
 
 const Field = ({item, name, label}) => {
     return (
@@ -42,7 +44,7 @@ export default class ItemInfo extends Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (this.props.personId !== prevProps.personId) {
+        if (this.props.itemId !== prevProps.itemId || this.props.getData !== prevProps.getData) {
             this.updatePerson();
         }
     }
@@ -51,7 +53,7 @@ export default class ItemInfo extends Component {
         const {item, loading, imageUrl} = this.state;
 
         if (!item) {
-            return <span>Select a person</span>
+            return <span>Select a person from list</span>
         }
 
         if (loading) {
@@ -63,8 +65,10 @@ export default class ItemInfo extends Component {
 
         return (
             <div className="item-detail">
-                {loader}
-                {content}
+                <ErrorBoundry>
+                    {loader}
+                    {content}
+                </ErrorBoundry>
             </div>
         )
     }
@@ -84,6 +88,9 @@ const ItemContent = ({item, imageUrl, children}) => {
                     {React.Children.map(children, child => {
                         return React.cloneElement(child, { item })
                     })}
+                </div>
+                <div className="pt-3">
+                    <ErrorButton />
                 </div>
             </div>
         </>
