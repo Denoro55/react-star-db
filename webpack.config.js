@@ -32,5 +32,8 @@ module.exports = {
     },
     resolve: {
         extensions: ['.js', '.jsx'] // если не указываем формат файла по умолчанию ищет js и другие в массиве
+    },
+    devServer: {
+        historyApiFallback: true,
     }
 };

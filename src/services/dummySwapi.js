@@ -858,9 +858,14 @@ class dummySwapiService {
         return `${this.BASE_IMAGE_URL}/planets/${id}.jpg`;
     };
 
+    _extractId = (item) => {
+        const idRegExp = /\/([0-9]*)\/$/;
+        return item.url.match(idRegExp)[1];
+    };
+
     _transformPlanet = (planet) => {
         return {
-            id: 5,
+            id: this._extractId(planet),
             name: planet.name,
             population: planet.population,
             rotationPeriod: planet.rotation_period,
@@ -870,7 +875,7 @@ class dummySwapiService {
 
     _transformPerson = (person) => {
         return {
-            id: 5,
+            id: this._extractId(person),
             name: person.name,
             gender: person.gender,
             birthYear: person.birth_year,
@@ -880,7 +885,7 @@ class dummySwapiService {
 
     _transformStarship = (starship) => {
         return {
-            id: 5,
+            id: this._extractId(starship),
             name: starship.name,
             model: starship.model,
             length: starship.length,

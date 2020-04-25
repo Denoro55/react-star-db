@@ -25,7 +25,7 @@ const withData = (View) => {
 
         componentDidUpdate(prevProps) {
             if (this.props.getData !== prevProps.getData) {
-                this.updatePerson();
+                this.update();
             }
         }
 

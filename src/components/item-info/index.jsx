@@ -33,6 +33,7 @@ export default class ItemInfo extends Component {
         if (!itemId) return;
 
         this.setState({loading: true});
+
         getData(itemId)
             .then(item => {
                 this.setState({
@@ -52,22 +53,16 @@ export default class ItemInfo extends Component {
     render() {
         const {item, loading, imageUrl} = this.state;
 
-        if (!item) {
-            return <span>Select a person from list</span>
-        }
-
-        if (loading) {
-            return <Spinner />
-        }
-
         const loader = loading ? <Spinner /> : null;
-        const content = !loading ? <ItemContent children={this.props.children} item={item} imageUrl={imageUrl} />: null;
+        const content = !loading && item ? <ItemContent children={this.props.children} item={item} imageUrl={imageUrl} />: null;
+        const empty = !loading && !item ? <span>Select an item from list</span> : null;
 
         return (
             <div className="item-detail">
                 <ErrorBoundry>
                     {loader}
                     {content}
+                    {empty}
                 </ErrorBoundry>
             </div>
         )

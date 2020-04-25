@@ -1,16 +1,6 @@
 import React from "react";
 import ItemList from "../item-list";
-import {withData, withSwapiService} from "../hocs";
-
-const withChildrenFn = (fn) => (Wrapped) => {
-      return (props) => {
-          return (
-              <Wrapped {...props}>
-                  {fn}
-              </Wrapped>
-          )
-      }
-};
+import {withData, withSwapiService, withChildFn, compose} from "../hocs";
 
 const renderName = ({name}) => `${name}`;
 const renderNameAndGender = ({name, gender}) => `${name} (${gender})`;
@@ -29,17 +19,26 @@ const mapStarshipMethodsToProps = (swapiService) => {
 
 // const PersonList = withSwapiService(withData(withChildrenFn(ItemList, renderNameAndGender)), mapPeopleMethodsToProps);
 
-const PersonList = withSwapiService(mapPeopleMethodsToProps)
-                        (withData(
-                            withChildrenFn(renderNameAndGender)(ItemList)));
+// const PersonList = withSwapiService(mapPeopleMethodsToProps)
+//                         (withData(
+//                             withChildFn(renderNameAndGender)
+//                                 (ItemList)));
+
+const PersonList = compose(
+    withSwapiService(mapPeopleMethodsToProps),
+    withData,
+    withChildFn(renderNameAndGender)
+)(ItemList);
 
 const PlanetsList = withSwapiService(mapPlanetMethodsToProps)
                         (withData(
-                            withChildrenFn(renderName)(ItemList)));
+                            withChildFn(renderName)
+                                (ItemList)));
 
 const StarshipsList = withSwapiService(mapStarshipMethodsToProps)
                         (withData(
-                            withChildrenFn(renderName)(ItemList)));
+                            withChildFn(renderName)
+                                (ItemList)));
 
 // const wrap = (Wrapped) => {
 //     return (props) => {
