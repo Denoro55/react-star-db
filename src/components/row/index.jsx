@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 const Row = ({left, right}) => {
     return (
         <div className="row">
-            <div className="col-12 col-xl-6 pt-4">
+            <div className="col-12 col-xl-6">
                 {left}
             </div>
-            <div className="col-12 col-xl-6 pt-4">
+            <div className="col-12 col-xl-6">
                 {right}
             </div>
         </div>

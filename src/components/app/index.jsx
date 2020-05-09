@@ -47,10 +47,10 @@ export default class App extends Component {
                         <div className="container pt-5 pb-5">
                             <ErrorBoundry>
                                 { this.state.show ? <RandomPlanet /> : null }
-                                    <div className="pt-4">
-                                        <div onClick={this.toggleShow} className="mr-3 btn btn-primary">Toggle planet</div>
-                                        <ErrorButton />
-                                    </div>
+                                    {/*<div className="pt-4">*/}
+                                    {/*    <div onClick={this.toggleShow} className="mr-3 btn btn-primary">Toggle planet</div>*/}
+                                    {/*    <ErrorButton />*/}
+                                    {/*</div>*/}
                                 <div className="pt-4">
                                     <Switch>
                                         <Route path="/" exact render={() => <h2 className="pt-4">Welcome to Star DB</h2>}/>

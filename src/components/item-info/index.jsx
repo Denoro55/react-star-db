@@ -1,7 +1,9 @@
-import React, {Component} from "react";
+import React, {Component, useState} from "react";
 import Spinner from "../spinner";
 import ErrorButton from "../error-button";
 import ErrorBoundry from "../error-boundry";
+
+import notFound from './not-found.jpg';
 
 const Field = ({item, name, label}) => {
     return (
@@ -72,10 +74,16 @@ export default class ItemInfo extends Component {
 const ItemContent = ({item, imageUrl, children}) => {
     const {name} = item;
 
+    const [imageSrc, setImageSrc] = useState(imageUrl);
+
+    const onImageError = () => {
+        setImageSrc(notFound);
+    };
+
     return (
         <>
             <div className="item-detail__left">
-                <img src={imageUrl} alt=""/>
+                <img onError={onImageError} src={imageSrc} alt=""/>
             </div>
             <div className="item-detail__right">
                 <div className="item-detail__name">{name}</div>

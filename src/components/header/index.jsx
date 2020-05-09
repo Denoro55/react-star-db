@@ -6,10 +6,6 @@ export default class Header extends Component {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <Link className="navbar-brand" to="/">Star DB</Link>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
                 <div className="collapse navbar-collapse" id="navbarText">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item active">
@@ -23,7 +19,7 @@ export default class Header extends Component {
                         </li>
                     </ul>
                 </div>
-                <button onClick={this.props.onToggleService} className="btn btn-primary">Change Service</button>
+                <button onClick={this.props.onToggleService} className="btn btn-primary">Switch Service</button>
             </nav>
         )
     }
