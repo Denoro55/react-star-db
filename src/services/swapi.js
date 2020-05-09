@@ -11,17 +11,17 @@ class SwapiService {
     };
 
     getPeopleAll = async () => {
-        const response = await this.getResourse('/people');
+        const response = await this.getResourse('/people/');
         return response.results.map(this._transformPerson);
     };
 
     getPeopleById = async (id) => {
-        const person = await this.getResourse(`/people/${id}`);
+        const person = await this.getResourse(`/people/${id}/`);
         return this._transformPerson(person);
     };
 
     getPlanetsAll = async () => {
-        const response = await this.getResourse('/planets');
+        const response = await this.getResourse('/planets/');
         return response.results.map(this._transformPlanet);
     };
 
@@ -31,12 +31,12 @@ class SwapiService {
     };
 
     getStarshipsAll = async () => {
-        const response = await this.getResourse('/starships');
+        const response = await this.getResourse('/starships/');
         return response.results.map(this._transformStarship);
     };
 
     getStarshipById = async (id) => {
-        const starship = await this.getResourse(`/starships/${id}`);
+        const starship = await this.getResourse(`/starships/${id}/`);
         return this._transformStarship(starship);
     };
 
