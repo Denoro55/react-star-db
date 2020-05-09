@@ -26,7 +26,7 @@ class SwapiService {
     };
 
     getPlanetById = async (id) => {
-        const planet = await this.getResourse(`/planets/${id}`);
+        const planet = await this.getResourse(`/planets/${id}/`);
         return this._transformPlanet(planet);
     };
 

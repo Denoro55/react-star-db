@@ -5,7 +5,7 @@ module.exports = {
     output: {
         filename: 'index.js',
         path: path.resolve(__dirname, 'dist'), // путь к dist
-        publicPath: '/dist' // чтобы отслеживать изменения и делать reload
+        publicPath: '/dist/' // чтобы отслеживать изменения и делать reload
     },
     module: {
         rules: [
