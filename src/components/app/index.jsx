@@ -39,11 +39,13 @@ export default class App extends Component {
     };
 
     render() {
+        const realApi = this.state.swapiService instanceof SwapiService;
+
         return (
             <div>
                 <SwapiServiceProvider value={this.state.swapiService}>
                     <Router>
-                        <Header onToggleService={this.onToggleService} />
+                        <Header realApi={realApi} onToggleService={this.onToggleService} />
                         <div className="container pt-5 pb-5">
                             <ErrorBoundry>
                                 { this.state.show ? <RandomPlanet /> : null }

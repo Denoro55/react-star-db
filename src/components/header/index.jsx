@@ -1,8 +1,17 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
+import cn from 'classnames'
 
 export default class Header extends Component {
     render() {
+        const {realApi} = this.props;
+
+        const btnClasses = cn({
+            'btn': true,
+            'btn-primary': realApi,
+            'btn-secondary': !realApi
+        });
+
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <Link className="navbar-brand" to="/">Star DB</Link>
@@ -19,7 +28,7 @@ export default class Header extends Component {
                         </li>
                     </ul>
                 </div>
-                <button onClick={this.props.onToggleService} className="btn btn-primary">Switch Service</button>
+                <button onClick={this.props.onToggleService} className={btnClasses}>{realApi ? 'Switch Service (real API now)' : 'Switch Service (test API now)'}</button>
             </nav>
         )
     }
