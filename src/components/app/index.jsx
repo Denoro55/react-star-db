@@ -44,7 +44,7 @@ export default class App extends Component {
         return (
             <div>
                 <SwapiServiceProvider value={this.state.swapiService}>
-                    <Router>
+                    <Router basename={process.env.PUBLIC_URL} >
                         <Header realApi={realApi} onToggleService={this.onToggleService} />
                         <div className="container pt-5 pb-5">
                             <ErrorBoundry>
