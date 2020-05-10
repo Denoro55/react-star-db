@@ -4,13 +4,14 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "dev": "webpack-dev-server --mode development --open",
-        "build": "webpack --mode production",
+        "dev": "webpack-dev-server --mode development --open --env.ENVIRONMENT=development",
+        "build": "webpack --mode production --env.ENVIRONMENT=production",
+        "predeploy": "npm run build",
         "deploy": "gh-pages -d dist"
     },
     "keywords": [],
+    "homepage": "https://denoro55.github.io/react-star-db/",
     "author": "",
-    "homepage": "https://denoro55.github.io/react-star-db",
     "license": "ISC",
     "devDependencies": {
         "@babel/core": "^7.9.0",
@@ -28,7 +29,10 @@
     "dependencies": {
         "@babel/polyfill": "^7.8.7",
         "classnames": "^2.2.6",
+        "copy-webpack-plugin": "^5.1.1",
+        "dotenv": "^8.2.0",
         "gh-pages": "^2.2.0",
+        "html-webpack-plugin": "^4.3.0",
         "prop-types": "^15.7.2",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",

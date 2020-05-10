@@ -36,14 +36,11 @@ export default class App extends Component {
     };
 
     render() {
-        console.log(process.env.PUBLIC_URL);
-
         const realApi = this.state.swapiService instanceof SwapiService;
-
         return (
             <div>
                 <SwapiServiceProvider value={this.state.swapiService}>
-                    <Router basename="/react-star-db" >
+                    <Router basename={process.env.PUBLIC_URL} >
                         <Header realApi={realApi} onToggleService={this.onToggleService} />
                         <div className="container pt-5 pb-5">
                             <ErrorBoundry>
