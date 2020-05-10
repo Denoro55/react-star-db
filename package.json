@@ -9,7 +9,7 @@
     },
     "keywords": [],
     "author": "",
-    "homepage": "./",
+    "homepage": "https://denoro55.github.io/react-star-db",
     "license": "ISC",
     "devDependencies": {
         "@babel/core": "^7.9.0",
