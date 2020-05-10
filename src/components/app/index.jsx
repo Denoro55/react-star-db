@@ -1,15 +1,12 @@
 import React, {Component} from "react";
 import Header from "../header";
 import RandomPlanet from "../random-planet";
-import ErrorButton from "../error-button";
 import ErrorBoundry from "../error-boundry";
 import {SwapiServiceProvider} from "../context";
 import SwapiService from "../../services/swapi";
 import DummySwapiService from "../../services/dummySwapi";
 import {PeoplePage, StarshipPage, PlanetPage} from "../pages";
-
-import {BrowserRouter as Router, Route, withRouter, Switch, Redirect} from "react-router-dom";
-import ItemInfo from "../item-info";
+import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
 import {PersonDetail} from "../sw-components";
 
 export default class App extends Component {
@@ -39,6 +36,8 @@ export default class App extends Component {
     };
 
     render() {
+        console.log(process.env.PUBLIC_URL);
+
         const realApi = this.state.swapiService instanceof SwapiService;
 
         return (
